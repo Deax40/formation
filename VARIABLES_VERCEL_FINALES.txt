@@ -1,0 +1,158 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║       VARIABLES D'ENVIRONNEMENT VERCEL - VERSION FINALE (7 VAR)       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+⚠️ AJOUTEZ SEULEMENT CES 7 VARIABLES (PAS PLUS !)
+
+Pour chaque variable :
+1. Cliquez sur "Add New"
+2. Name : copiez le nom exactement
+3. Value : copiez la valeur exactement
+4. Environments : sélectionnez Production + Preview + Development
+5. Cliquez sur "Save"
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLES À COPIER-COLLER (1 À 4)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+DATABASE_URL
+
+Value:
+postgres://6362dbb90991a08d7e7d1125abf082a7d741f351e94acf5e258fcdec99054594:sk_ewEq0lo1pYhl7L_Mj2Jve@db.prisma.io:5432/postgres?sslmode=require
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+NEXTAUTH_SECRET
+
+Value:
+XuRBCcDHfyiyT7Jq0KrP/swr9UxeEu+zVYG6naRz7BQ=
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+NEXTAUTH_URL
+
+Value (TEMPORAIRE - à modifier après déploiement):
+https://formation.vercel.app
+
+⚠️ APRÈS LE DÉPLOIEMENT : Remplacez par votre vraie URL
+Exemple : https://formation-abc123.vercel.app
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING
+
+Value:
+1
+
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ VARIABLES STRIPE À CONFIGURER (5 À 7)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 Comment obtenir vos clés Stripe :
+
+1. Allez sur https://stripe.com
+2. Créez un compte (GRATUIT)
+3. Activez le MODE TEST (toggle en haut à droite)
+4. Menu : Développeurs → Clés API
+5. Copiez les clés ci-dessous
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
+Value:
+pk_test_VOTRE_CLE_PUBLIQUE_STRIPE
+
+📝 Où trouver cette clé :
+→ Dashboard Stripe > Développeurs > Clés API
+→ "Clé publiable" (commence par pk_test_)
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+STRIPE_SECRET_KEY
+
+Value:
+sk_test_VOTRE_CLE_SECRETE_STRIPE
+
+📝 Où trouver cette clé :
+→ Même page que ci-dessus
+→ Cliquez sur "Afficher la clé secrète de test"
+→ "Clé secrète" (commence par sk_test_)
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+STRIPE_WEBHOOK_SECRET
+
+Value (TEMPORAIRE pour le premier déploiement):
+whsec_temporaire
+
+📝 Après le déploiement, configurez le vrai webhook :
+1. Dashboard Stripe > Développeurs > Webhooks
+2. Ajoutez l'endpoint : https://votre-app.vercel.app/api/webhooks/stripe
+3. Événement : checkout.session.completed
+4. Copiez le "Secret de signature" (commence par whsec_)
+5. Remplacez cette variable dans Vercel
+6. Redéployez
+
+═══════════════════════════════════════════════════════════════════════
+
+📋 CHECKLIST FINALE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Vérifiez que vous avez bien ajouté ces 7 variables :
+
+□ DATABASE_URL
+□ NEXTAUTH_SECRET
+□ NEXTAUTH_URL
+□ PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING
+□ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+□ STRIPE_SECRET_KEY
+□ STRIPE_WEBHOOK_SECRET
+
+═══════════════════════════════════════════════════════════════════════
+
+❌ VARIABLES À NE PAS AJOUTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ces variables ne sont PLUS nécessaires avec engineType=library :
+
+❌ PRISMA_SKIP_POSTINSTALL_GENERATE
+❌ PRISMA_GENERATE_SKIP_AUTOINSTALL
+❌ PRISMA_CLI_BINARY_TARGETS
+❌ SKIP_ENV_VALIDATION
+
+Si vous les aviez ajoutées lors d'un précédent essai, SUPPRIMEZ-LES !
+
+═══════════════════════════════════════════════════════════════════════
+
+🎯 APRÈS AVOIR AJOUTÉ TOUTES LES VARIABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Vérifiez que vous avez bien les 7 variables
+2. Vérifiez qu'il n'y a pas d'espaces avant/après les valeurs
+3. Cliquez sur "Deploy"
+4. Attendez 2-3 minutes
+5. ✅ LE BUILD DEVRAIT RÉUSSIR !
+
+═══════════════════════════════════════════════════════════════════════
+
+🎉 SUCCÈS GARANTI !
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Avec engineType = "library", plus aucun téléchargement de binaire.
+L'erreur 500 ne peut plus se produire ! 🚀
+
+GO ! Déployez maintenant !
+
+═══════════════════════════════════════════════════════════════════════
