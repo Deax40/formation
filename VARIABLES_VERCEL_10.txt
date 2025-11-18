@@ -1,0 +1,161 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║           LES 10 VARIABLES À AJOUTER DANS VERCEL                      ║
+║                   (COPIER-COLLER DIRECT)                               ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+⚠️ POUR CHAQUE VARIABLE :
+→ Name : copiez le nom
+→ Value : copiez la valeur
+→ Environments : Production + Preview + Development (TOUTES)
+→ Save
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLE 1/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+DATABASE_URL
+
+Value:
+postgres://6362dbb90991a08d7e7d1125abf082a7d741f351e94acf5e258fcdec99054594:sk_ewEq0lo1pYhl7L_Mj2Jve@db.prisma.io:5432/postgres?sslmode=require
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLE 2/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+NEXTAUTH_SECRET
+
+Value:
+XuRBCcDHfyiyT7Jq0KrP/swr9UxeEu+zVYG6naRz7BQ=
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLE 3/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+NEXTAUTH_URL
+
+Value (TEMPORAIRE):
+https://formation.vercel.app
+
+⚠️ À MODIFIER après le déploiement avec votre vraie URL
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLE 4/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING
+
+Value:
+1
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLE 5/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+PRISMA_CLI_QUERY_ENGINE_TYPE
+
+Value:
+library
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLE 6/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+PRISMA_CLIENT_ENGINE_TYPE
+
+Value:
+library
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLE 7/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+PRISMA_SKIP_POSTINSTALL_GENERATE
+
+Value:
+true
+
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ VARIABLE 8/10 (À RÉCUPÉRER SUR STRIPE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
+Value:
+pk_test_VOTRE_CLE_PUBLIQUE_STRIPE
+
+📍 Où trouver :
+1. https://stripe.com (créez un compte GRATUIT)
+2. MODE TEST (toggle en haut à droite)
+3. Développeurs > Clés API
+4. Copiez la "Clé publiable" (pk_test_...)
+
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ VARIABLE 9/10 (À RÉCUPÉRER SUR STRIPE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+STRIPE_SECRET_KEY
+
+Value:
+sk_test_VOTRE_CLE_SECRETE_STRIPE
+
+📍 Où trouver :
+→ Même page que ci-dessus
+→ Cliquez sur "Afficher la clé secrète de test"
+→ Copiez la "Clé secrète" (sk_test_...)
+
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ VARIABLE 10/10 (TEMPORAIRE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name:
+STRIPE_WEBHOOK_SECRET
+
+Value (TEMPORAIRE):
+whsec_temporaire
+
+📍 À configurer après le déploiement :
+1. Dashboard Stripe > Développeurs > Webhooks
+2. Ajoutez : https://votre-app.vercel.app/api/webhooks/stripe
+3. Événement : checkout.session.completed
+4. Copiez le "Secret de signature"
+5. Remplacez cette variable dans Vercel
+6. Redéployez
+
+═══════════════════════════════════════════════════════════════════════
+
+📋 CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ DATABASE_URL
+□ NEXTAUTH_SECRET
+□ NEXTAUTH_URL
+□ PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING
+□ PRISMA_CLI_QUERY_ENGINE_TYPE
+□ PRISMA_CLIENT_ENGINE_TYPE
+□ PRISMA_SKIP_POSTINSTALL_GENERATE
+□ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+□ STRIPE_SECRET_KEY
+□ STRIPE_WEBHOOK_SECRET
+
+✅ Toutes ajoutées ? → Cliquez sur "Deploy" !
+
+═══════════════════════════════════════════════════════════════════════
