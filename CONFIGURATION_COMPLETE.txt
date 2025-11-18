@@ -1,0 +1,272 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║                  CONFIGURATION COMPLÈTE - FORMATIONSHOP                ║
+║                        ✅ PRÊT À L'EMPLOI                              ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+📁 Repository GitHub: https://github.com/Deax40/formation.git
+
+═══════════════════════════════════════════════════════════════════════
+
+🔐 VARIABLES D'ENVIRONNEMENT (Fichier .env créé automatiquement)
+
+═══════════════════════════════════════════════════════════════════════
+
+1️⃣ BASE DE DONNÉES POSTGRESQL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ DÉJÀ CONFIGURÉ
+DATABASE_URL="postgres://6362dbb90991a08d7e7d1125abf082a7d741f351e94acf5e258fcdec99054594:sk_ewEq0lo1pYhl7L_Mj2Jve@db.prisma.io:5432/postgres?sslmode=require"
+
+Votre base de données Prisma est prête à être utilisée.
+
+═══════════════════════════════════════════════════════════════════════
+
+2️⃣ NEXTAUTH (AUTHENTIFICATION)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ DÉJÀ CONFIGURÉ
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="XuRBCcDHfyiyT7Jq0KrP/swr9UxeEu+zVYG6naRz7BQ="
+
+Le secret a été généré automatiquement et est sécurisé.
+
+⚠️ EN PRODUCTION (Vercel):
+Changez NEXTAUTH_URL en: https://votre-app.vercel.app
+
+═══════════════════════════════════════════════════════════════════════
+
+3️⃣ STRIPE (PAIEMENTS) - ⚠️ À CONFIGURER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+❌ VOUS DEVEZ AJOUTER VOS CLÉS STRIPE
+
+📝 ÉTAPES À SUIVRE:
+
+1. Créer un compte Stripe
+   → Allez sur: https://stripe.com
+   → Cliquez sur "Commencer" et créez un compte GRATUIT
+
+2. Activer le mode TEST
+   → Dans le dashboard Stripe, en haut à droite
+   → Basculez sur "Mode test" (toggle)
+
+3. Récupérer les clés API
+   → Menu: Développeurs > Clés API
+   → Vous verrez deux clés:
+
+   a) Clé publiable (commence par pk_test_...)
+      Exemple: pk_test_51ABC123xyz...
+      → Copiez-la dans le fichier .env à la ligne:
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_test_VOTRE_CLE_ICI"
+
+   b) Clé secrète (commence par sk_test_...)
+      Cliquez sur "Afficher la clé secrète de test"
+      Exemple: sk_test_51ABC123xyz...
+      → Copiez-la dans le fichier .env à la ligne:
+      STRIPE_SECRET_KEY="sk_test_VOTRE_CLE_ICI"
+
+4. Configurer le Webhook (pour que les paiements fonctionnent)
+
+   🖥️ EN DÉVELOPPEMENT LOCAL:
+
+   a) Téléchargez Stripe CLI:
+      Windows: https://github.com/stripe/stripe-cli/releases/latest
+      Téléchargez "stripe_X.X.X_windows_x86_64.zip"
+
+   b) Extrayez le fichier et ouvrez un terminal dans ce dossier
+
+   c) Connectez-vous à Stripe:
+      stripe login
+
+   d) Lancez le webhook local:
+      stripe listen --forward-to localhost:3000/api/webhooks/stripe
+
+   e) Le terminal affichera un secret (commence par whsec_...)
+      Exemple: whsec_abc123xyz...
+      → Copiez-le dans le fichier .env à la ligne:
+      STRIPE_WEBHOOK_SECRET="whsec_VOTRE_SECRET_ICI"
+
+   ⚠️ IMPORTANT: Gardez ce terminal ouvert pendant que vous développez
+
+
+   🌐 EN PRODUCTION (Vercel):
+
+   a) Dashboard Stripe > Développeurs > Webhooks
+   b) Cliquez sur "Ajouter un endpoint"
+   c) URL du endpoint: https://votre-app.vercel.app/api/webhooks/stripe
+   d) Événements à écouter: Sélectionnez "checkout.session.completed"
+   e) Créez le webhook
+   f) Copiez le "Secret de signature" (commence par whsec_...)
+   g) Ajoutez-le dans les variables d'environnement Vercel
+
+═══════════════════════════════════════════════════════════════════════
+
+🚀 INSTALLATION ET DÉMARRAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Ouvrez un terminal dans le dossier du projet
+
+2. Installez les dépendances:
+   npm install
+
+3. Créez les tables dans la base de données:
+   npx prisma migrate dev --name init
+
+4. Alimentez la base avec des données de test:
+   npm run seed
+
+   Cela créera:
+   ✅ 1 compte admin: admin@example.com / admin123
+   ✅ 2 comptes utilisateurs de test
+   ✅ 3 formations complètes
+   ✅ Commandes et données de démonstration
+
+5. Lancez le serveur de développement:
+   npm run dev
+
+6. Ouvrez votre navigateur:
+   http://localhost:3000
+
+═══════════════════════════════════════════════════════════════════════
+
+🔑 COMPTES DE TEST CRÉÉS AUTOMATIQUEMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👨‍💼 ADMINISTRATEUR:
+Email:    admin@example.com
+Password: admin123
+Accès:    http://localhost:3000/admin
+
+👤 UTILISATEUR 1:
+Email:    user1@example.com
+Password: user123
+
+👤 UTILISATEUR 2:
+Email:    user2@example.com
+Password: user123
+
+═══════════════════════════════════════════════════════════════════════
+
+💳 TESTER UN PAIEMENT AVEC STRIPE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Une fois Stripe configuré, utilisez ces données de test:
+
+Numéro de carte:  4242 4242 4242 4242
+Date d'expiration: N'importe quelle date future (ex: 12/34)
+CVC:              N'importe quel 3 chiffres (ex: 123)
+Code postal:      N'importe quel code (ex: 75001)
+
+Le paiement sera confirmé instantanément en mode test.
+
+═══════════════════════════════════════════════════════════════════════
+
+📱 PAGES DISPONIBLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PUBLIC:
+→ http://localhost:3000                    (Accueil)
+→ http://localhost:3000/formations         (Catalogue)
+→ http://localhost:3000/login              (Connexion)
+→ http://localhost:3000/register           (Inscription)
+→ http://localhost:3000/cgv                (CGV)
+
+UTILISATEUR CONNECTÉ:
+→ http://localhost:3000/dashboard          (Mes formations)
+→ http://localhost:3000/panier             (Mon panier)
+→ http://localhost:3000/checkout           (Paiement)
+
+ADMINISTRATEUR:
+→ http://localhost:3000/admin              (Dashboard admin)
+→ http://localhost:3000/admin/users        (Utilisateurs)
+→ http://localhost:3000/admin/orders       (Commandes)
+→ http://localhost:3000/admin/analytics    (Analytics)
+
+═══════════════════════════════════════════════════════════════════════
+
+🌐 DÉPLOIEMENT SUR VERCEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Allez sur: https://vercel.com
+2. Connectez-vous avec GitHub
+3. Cliquez sur "New Project"
+4. Importez le repository: Deax40/formation
+5. Dans "Environment Variables", ajoutez:
+
+   DATABASE_URL = postgres://6362dbb90991a08d7e7d1125abf082a7d741f351e94acf5e258fcdec99054594:sk_ewEq0lo1pYhl7L_Mj2Jve@db.prisma.io:5432/postgres?sslmode=require
+
+   NEXTAUTH_URL = https://votre-app.vercel.app
+
+   NEXTAUTH_SECRET = XuRBCcDHfyiyT7Jq0KrP/swr9UxeEu+zVYG6naRz7BQ=
+
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = pk_test_...
+
+   STRIPE_SECRET_KEY = sk_test_...
+
+   STRIPE_WEBHOOK_SECRET = whsec_... (créez un nouveau webhook en production)
+
+6. Cliquez sur "Deploy"
+
+7. Après le déploiement, initialisez la base:
+   npm i -g vercel
+   vercel login
+   vercel link
+   vercel env pull .env.local
+   npx prisma migrate deploy
+   npm run seed
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ CHECKLIST DE VÉRIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Base de données configurée (DATABASE_URL)
+✅ NextAuth configuré (NEXTAUTH_URL + NEXTAUTH_SECRET)
+⚠️ Stripe à configurer (3 variables à ajouter dans .env)
+⚠️ Webhook Stripe à lancer (stripe listen...)
+
+═══════════════════════════════════════════════════════════════════════
+
+🆘 EN CAS DE PROBLÈME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ Erreur de connexion à la base:
+   → Vérifiez que DATABASE_URL est correct
+   → Testez avec: npx prisma db pull
+
+❌ Erreur NextAuth:
+   → Vérifiez que NEXTAUTH_SECRET fait 32+ caractères
+   → Vérifiez que NEXTAUTH_URL correspond à votre URL
+
+❌ Erreur Stripe:
+   → Vérifiez que vous êtes en mode TEST
+   → Vérifiez que les clés commencent par pk_test_ et sk_test_
+
+❌ Paiement ne se confirme pas:
+   → Vérifiez que le webhook Stripe est lancé
+   → Vérifiez les logs: stripe listen --forward-to...
+
+═══════════════════════════════════════════════════════════════════════
+
+📚 RESSOURCES UTILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+→ Documentation Stripe: https://stripe.com/docs
+→ Dashboard Stripe: https://dashboard.stripe.com
+→ Stripe CLI: https://stripe.com/docs/stripe-cli
+→ Documentation Next.js: https://nextjs.org/docs
+→ Documentation Prisma: https://www.prisma.io/docs
+
+═══════════════════════════════════════════════════════════════════════
+
+🎉 TOUT EST PRÊT !
+
+Fichier .env créé et configuré (sauf Stripe à ajouter)
+Base de données prête
+Authentication configurée
+Il ne vous reste plus qu'à:
+1. Ajouter vos clés Stripe dans le .env
+2. Lancer npm install
+3. Lancer npx prisma migrate dev --name init
+4. Lancer npm run seed
+5. Lancer npm run dev
+6. Profiter ! 🚀
+
+═══════════════════════════════════════════════════════════════════════

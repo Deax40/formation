@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════════════
+VARIABLES D'ENVIRONNEMENT POUR VERCEL
+═══════════════════════════════════════════════════════════════════════
+
+Copiez-collez ces variables dans les paramètres de votre projet Vercel:
+
+─────────────────────────────────────────────────────────────────────
+
+DATABASE_URL
+postgres://6362dbb90991a08d7e7d1125abf082a7d741f351e94acf5e258fcdec99054594:sk_ewEq0lo1pYhl7L_Mj2Jve@db.prisma.io:5432/postgres?sslmode=require
+
+─────────────────────────────────────────────────────────────────────
+
+NEXTAUTH_URL
+https://votre-app.vercel.app
+
+⚠️ IMPORTANT: Remplacez "votre-app" par le vrai nom de votre app Vercel
+
+─────────────────────────────────────────────────────────────────────
+
+NEXTAUTH_SECRET
+XuRBCcDHfyiyT7Jq0KrP/swr9UxeEu+zVYG6naRz7BQ=
+
+─────────────────────────────────────────────────────────────────────
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+pk_test_VOTRE_CLE_PUBLIQUE_STRIPE
+
+⚠️ À récupérer sur: https://dashboard.stripe.com/test/apikeys
+
+─────────────────────────────────────────────────────────────────────
+
+STRIPE_SECRET_KEY
+sk_test_VOTRE_CLE_SECRETE_STRIPE
+
+⚠️ À récupérer sur: https://dashboard.stripe.com/test/apikeys
+
+─────────────────────────────────────────────────────────────────────
+
+STRIPE_WEBHOOK_SECRET
+whsec_VOTRE_SECRET_WEBHOOK_PRODUCTION
+
+⚠️ Créez un webhook en production sur Stripe dashboard
+   URL: https://votre-app.vercel.app/api/webhooks/stripe
+   Événement: checkout.session.completed
+
+═══════════════════════════════════════════════════════════════════════
