@@ -42,6 +42,22 @@ Value:
 ─────────────────────────────────────────────────────────────────────
 
 Name:
+PRISMA_SKIP_POSTINSTALL_GENERATE
+
+Value:
+1
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+PRISMA_GENERATE_SKIP_AUTOINSTALL
+
+Value:
+1
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
 NEXTAUTH_URL
 
 Value (TEMPORAIRE - à remplacer après le premier déploiement):
@@ -109,6 +125,8 @@ whsec_temporaire
 □ NEXTAUTH_SECRET ajoutée
 □ NEXTAUTH_URL ajoutée (temporaire OK)
 □ PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING ajoutée
+□ PRISMA_SKIP_POSTINSTALL_GENERATE ajoutée (NOUVELLE - IMPORTANTE)
+□ PRISMA_GENERATE_SKIP_AUTOINSTALL ajoutée (NOUVELLE - IMPORTANTE)
 □ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ajoutée
 □ STRIPE_SECRET_KEY ajoutée
 □ STRIPE_WEBHOOK_SECRET ajoutée (temporaire OK)
