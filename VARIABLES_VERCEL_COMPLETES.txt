@@ -1,0 +1,146 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║     VARIABLES D'ENVIRONNEMENT POUR VERCEL - COPIER-COLLER DIRECT      ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Instructions :
+1. Allez sur Vercel → Votre projet → Settings → Environment Variables
+2. Pour chaque variable ci-dessous :
+   - Cliquez sur "Add New"
+   - Name : copiez le nom de la variable
+   - Value : copiez la valeur
+   - Environments : sélectionnez "Production, Preview, Development"
+   - Cliquez sur "Save"
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ VARIABLES PRÊTES À L'EMPLOI (copiez-collez directement)
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+DATABASE_URL
+
+Value:
+postgres://6362dbb90991a08d7e7d1125abf082a7d741f351e94acf5e258fcdec99054594:sk_ewEq0lo1pYhl7L_Mj2Jve@db.prisma.io:5432/postgres?sslmode=require
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+NEXTAUTH_SECRET
+
+Value:
+XuRBCcDHfyiyT7Jq0KrP/swr9UxeEu+zVYG6naRz7BQ=
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING
+
+Value:
+1
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+NEXTAUTH_URL
+
+Value (TEMPORAIRE - à remplacer après le premier déploiement):
+https://formation.vercel.app
+
+⚠️ APRÈS LE DÉPLOIEMENT, remplacez par votre vraie URL Vercel
+Exemple: https://formation-abc123.vercel.app
+
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ VARIABLES STRIPE À CONFIGURER
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
+Value:
+pk_test_VOTRE_CLE_PUBLIQUE_STRIPE
+
+📝 Comment obtenir cette clé:
+1. Allez sur https://stripe.com
+2. Créez un compte (gratuit)
+3. Activez le MODE TEST (toggle en haut à droite)
+4. Menu: Développeurs > Clés API
+5. Copiez la "Clé publiable" (commence par pk_test_)
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+STRIPE_SECRET_KEY
+
+Value:
+sk_test_VOTRE_CLE_SECRETE_STRIPE
+
+📝 Comment obtenir cette clé:
+1. Même dashboard Stripe que ci-dessus
+2. Développeurs > Clés API
+3. Cliquez sur "Afficher la clé secrète de test"
+4. Copiez la "Clé secrète" (commence par sk_test_)
+
+─────────────────────────────────────────────────────────────────────
+
+Name:
+STRIPE_WEBHOOK_SECRET
+
+Value (TEMPORAIRE pour le premier déploiement):
+whsec_temporaire
+
+⚠️ APRÈS LE DÉPLOIEMENT, configurez le vrai webhook:
+1. Dashboard Stripe > Développeurs > Webhooks
+2. Cliquez sur "Ajouter un endpoint"
+3. URL: https://votre-app.vercel.app/api/webhooks/stripe
+4. Événements: Sélectionnez "checkout.session.completed"
+5. Créez le webhook
+6. Copiez le "Secret de signature" (commence par whsec_)
+7. Remplacez cette variable dans Vercel
+8. Redéployez l'application
+
+═══════════════════════════════════════════════════════════════════════
+
+📋 CHECKLIST AVANT DE DÉPLOYER
+
+□ DATABASE_URL ajoutée
+□ NEXTAUTH_SECRET ajoutée
+□ NEXTAUTH_URL ajoutée (temporaire OK)
+□ PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING ajoutée
+□ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ajoutée
+□ STRIPE_SECRET_KEY ajoutée
+□ STRIPE_WEBHOOK_SECRET ajoutée (temporaire OK)
+
+Une fois toutes les variables ajoutées → Cliquez sur "Deploy" ! 🚀
+
+═══════════════════════════════════════════════════════════════════════
+
+🔄 APRÈS LE DÉPLOIEMENT
+
+1. Notez l'URL de votre app (ex: https://formation-xyz.vercel.app)
+2. Mettez à jour NEXTAUTH_URL avec cette URL
+3. Configurez le webhook Stripe avec cette URL
+4. Mettez à jour STRIPE_WEBHOOK_SECRET
+5. Redéployez l'application
+
+6. Initialisez la base de données:
+   npm i -g vercel
+   vercel login
+   vercel link
+   vercel env pull .env.local
+   npx prisma migrate deploy
+   npm run seed
+
+7. Testez l'application:
+   → Connexion: admin@example.com / admin123
+   → Paiement test: carte 4242 4242 4242 4242
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ C'EST TOUT !
+
+Votre application sera en ligne en quelques minutes ! 🎉
+
+═══════════════════════════════════════════════════════════════════════
